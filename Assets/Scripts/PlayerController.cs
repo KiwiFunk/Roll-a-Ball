@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public float speed = 0;
+
     private Rigidbody rigidBody;
     private float movementX;
     private float movementY;
@@ -19,8 +21,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 movementVector = new Vector3(movementX, 0.0f, movementY);
-        // Move the player using the rigidbody component
-        rigidBody.AddForce(movementVector);
+        // Apply force to RigidBody using movement vector * speed
+        rigidBody.AddForce(movementVector * speed);
         
     }
 
